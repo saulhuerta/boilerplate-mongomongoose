@@ -1,5 +1,17 @@
 require('dotenv').config();
 
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb+srv://saul:SuperPassword@cluster10101.pqwlc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+const personSchema = new Schema({
+  name: { type: String, required: true },
+  age: Number,
+  favoriteFoods: [String]
+});
+
+const Person = mongoose.model( "Person", personSchema );
 
 let Person;
 
